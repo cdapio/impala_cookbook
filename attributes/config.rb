@@ -25,5 +25,5 @@ default['impala']['user'] = 'impala'
 default['impala']['group'] = 'impala'
 
 # Set Hadoop attributes
-override['hadoop']['distribution'] == 'cdh'
-override['hadoop']['distribution_version'] == 5
+override['hadoop']['distribution'] = 'cdh'
+override['hadoop']['distribution_version'] = 5
