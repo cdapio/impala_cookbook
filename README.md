@@ -16,8 +16,10 @@
 
 # Recipes
 
+* `catalog` - Installs `impala-catalog` package and service
 * `config` - Configures all services
 * `default` - Installs `impala` package and runs `config` recipe
+* `state_store` - Installs `impala-state-store` package and service
 
 # Author
 
