@@ -22,5 +22,3 @@ include_recipe 'impala::default'
 package 'impala-state-store' do
   action :install
 end
-
-# include_recipe 'impala::config'

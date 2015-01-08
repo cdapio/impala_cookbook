@@ -40,4 +40,4 @@ package 'impala' do
   action :install
 end
 
-# include_recipe 'impala::config'
+include_recipe 'impala::config'

@@ -1,8 +1,8 @@
 #
 # Cookbook Name:: impala
-# Recipe:: catalog
+# Recipe:: config
 #
-# Copyright © 2013-2015 Cask Data, Inc.
+# Copyright © 2013-2014 Cask Data, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,8 +17,18 @@
 # limitations under the License.
 #
 
-include_recipe 'impala::default'
+impala_conf_dir = "/etc/impala/#{node['impala']['conf_dir']}"
 
-package 'impala-catalog' do
-  action :install
+directory impala_conf_dir do
+  mode '0755'
+  owner 'root'
+  group 'root'
+  action :create
+  recursive true
+end
+
+# Update alternatives to point to our configuration
+execute 'update impala-conf alternatives' do
+  command "update-alternatives --install /etc/impala/conf impala-conf /etc/impala/#{node['impala']['conf_dir']} 50"
+  not_if "update-alternatives --display impala-conf | grep best | awk '{print $5}' | grep /etc/impala/#{node['impala']['conf_dir']}"
 end
