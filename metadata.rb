@@ -6,7 +6,7 @@ description      'Installs/Configures Impala'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.0.1'
 
-%w(apt hadoop java yum).each do |cb|
+%w(hadoop java).each do |cb|
   depends cb
 end
 
