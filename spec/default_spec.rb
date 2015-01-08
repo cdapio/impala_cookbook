@@ -16,5 +16,9 @@ describe 'impala::default' do
     it 'create impala group' do
       expect(chef_run).to create_group('impala')
     end
+
+    it 'installs impala package' do
+      expect(chef_run).to install_package('impala')
+    end
   end
 end
