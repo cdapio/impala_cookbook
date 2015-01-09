@@ -27,7 +27,7 @@ end
 # share cookbook to Chef community site
 desc 'Share cookbook to community site'
 task :share do
-  sh 'knife cookbook site share coopr other'
+  sh 'knife cookbook site share impala databases'
 end
 
 # run vagrant test
