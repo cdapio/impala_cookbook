@@ -13,7 +13,7 @@ describe 'impala::default' do
       expect(chef_run).to create_user('impala')
     end
 
-    it 'create impala group' do
+    it 'creates impala group' do
       expect(chef_run).to create_group('impala')
     end
 
