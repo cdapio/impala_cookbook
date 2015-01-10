@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: coopr
+# Cookbook Name:: impala
 # Attribute:: java
 #
 # Copyright © 2013-2015 Cask Data, Inc.

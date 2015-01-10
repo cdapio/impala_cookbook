@@ -27,6 +27,56 @@ directory impala_conf_dir do
   recursive true
 end
 
+directory '/etc/default' do
+  mode '0755'
+  owner 'root'
+  group 'root'
+  action :create
+  recursive true
+end
+
+# Setup /etc/default/impala
+if node['impala'].key?('config')
+  my_vars = { :options => node['impala']['config'] }
+
+  impala_log_dir =
+    if node['impala']['config'].key?('impala_log_dir')
+      node['impala']['config']['impala_log_dir']
+    else
+      '/var/log/impala'
+    end
+
+  directory impala_log_dir do
+    owner 'impala'
+    group 'impala'
+    mode '0755'
+    action :create
+    recursive true
+    only_if { node['impala']['config'].key?('impala_log_dir') }
+  end
+
+  unless impala_log_dir == '/var/log/impala'
+    # Delete default directory, if we aren't set to it
+    directory '/var/log/impala' do
+      action :delete
+      not_if 'test -L /var/log/impala'
+    end
+    # symlink
+    link '/var/log/impala' do
+      to impala_log_dir
+    end
+  end
+
+  template '/etc/default/impala' do
+    source 'generic-env.sh.erb'
+    mode '0755'
+    owner 'impala'
+    group 'impala'
+    action :create
+    variables my_vars
+  end
+end # End /etc/default/impala
+
 # Update alternatives to point to our configuration
 execute 'update impala-conf alternatives' do
   command "update-alternatives --install /etc/impala/conf impala-conf /etc/impala/#{node['impala']['conf_dir']} 50"
