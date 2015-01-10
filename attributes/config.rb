@@ -29,18 +29,18 @@ override['hadoop']['distribution'] = 'cdh'
 override['hadoop']['distribution_version'] = 5
 
 # Impala /etc/default/impala startup configurations
-default['impala']['config']['IMPALA_CATALOG_SERVICE_HOST'] = '127.0.0.1'
-default['impala']['config']['IMPALA_STATE_STORE_HOST'] = '127.0.0.1'
-default['impala']['config']['IMPALA_STATE_STORE_PORT'] = '24000'
-default['impala']['config']['IMPALA_BACKEND_PORT'] = '22000'
-default['impala']['config']['IMPALA_LOG_DIR'] = '/var/log/impala'
-default['impala']['config']['IMPALA_CATALOG_ARGS'] = ' -log_dir=${IMPALA_LOG_DIR}'
-default['impala']['config']['IMPALA_STATE_STORE_ARGS'] = ' -log_dir=${IMPALA_LOG_DIR} -state_store_port=${IMPALA_STATE_STORE_PORT}'
-default['impala']['config']['IMPALA_SERVER_ARGS'] = ' \
+default['impala']['config']['impala_catalog_service_host'] = '127.0.0.1'
+default['impala']['config']['impala_state_store_host'] = '127.0.0.1'
+default['impala']['config']['impala_state_store_port'] = '24000'
+default['impala']['config']['impala_backend_port'] = '22000'
+default['impala']['config']['impala_log_dir'] = '/var/log/impala'
+default['impala']['config']['impala_catalog_args'] = ' -log_dir=${IMPALA_LOG_DIR}'
+default['impala']['config']['impala_state_store_args'] = ' -log_dir=${IMPALA_LOG_DIR} -state_store_port=${IMPALA_STATE_STORE_PORT}'
+default['impala']['config']['impala_server_args'] = ' \
     -log_dir=${IMPALA_LOG_DIR} \
     -catalog_service_host=${IMPALA_CATALOG_SERVICE_HOST} \
     -state_store_port=${IMPALA_STATE_STORE_PORT} \
     -use_statestore \
     -state_store_host=${IMPALA_STATE_STORE_HOST} \
     -be_port=${IMPALA_BACKEND_PORT}'
-default['impala']['config']['ENABLE_CORE_DUMPS'] = 'false'
+default['impala']['config']['enable_core_dumps'] = 'false'
