@@ -22,3 +22,7 @@ include_recipe 'impala::default'
 package 'impala-catalog' do
   action :install
 end
+
+service 'impala-catalog' do
+  action [:enable, :start]
+end
