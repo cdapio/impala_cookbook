@@ -22,3 +22,7 @@ include_recipe 'impala::default'
 package 'impala-state-store' do
   action :install
 end
+
+service 'impala-state-store' do
+  action [:enable, :start]
+end
