@@ -49,7 +49,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           'dfs.domain.socket.path' => '/var/lib/hadoop-hdfs/dn_socket',
           'dfs.client.read.shortcircuit' => true,
           'dfs.datanode.hdfs-blocks-metadata.enabled' => true,
-          'dfs.client.file-block-storage-locations.timeout.millis' => 60000
+          'dfs.client.file-block-storage-locations.timeout.millis' => '60000'
         }
       },
       :hive => {
