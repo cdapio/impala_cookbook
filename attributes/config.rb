@@ -28,7 +28,8 @@ default['impala']['group'] = 'impala'
 override['hadoop']['distribution'] = 'cdh'
 override['hadoop']['distribution_version'] = 5
 
-# These are required to be set
+# These are required to be set for Impala
+# http://www.cloudera.com/content/cloudera/en/documentation/cloudera-impala/latest/topics/impala_config_performance.html
 default['hadoop']['hdfs_site']['dfs.domain.socket.path'] = '/var/lib/hadoop-hdfs/dn_socket'
 default['hadoop']['hdfs_site']['dfs.client.read.shortcircuit'] = true
 default['hadoop']['hdfs_site']['dfs.datanode.hdfs-blocks-metadata.enabled'] = true
