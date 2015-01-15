@@ -28,6 +28,12 @@ default['impala']['group'] = 'impala'
 override['hadoop']['distribution'] = 'cdh'
 override['hadoop']['distribution_version'] = 5
 
+# These are required to be set
+default['hadoop']['hdfs_site']['dfs.domain.socket.path'] = '/var/lib/hadoop-hdfs/dn_socket'
+default['hadoop']['hdfs_site']['dfs.client.read.shortcircuit'] = true
+default['hadoop']['hdfs_site']['dfs.datanode.hdfs-blocks-metadata.enabled'] = true
+default['hadoop']['hdfs_site']['dfs.client.file-block-storage-locations.timeout.millis'] = '60000'
+
 # Impala /etc/default/impala startup configurations
 default['impala']['config']['impala_catalog_service_host'] = '127.0.0.1'
 default['impala']['config']['impala_state_store_host'] = '127.0.0.1'

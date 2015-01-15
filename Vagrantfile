@@ -44,14 +44,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :server_debian_password => 'debpass',
         :server_repl_password => 'replpass'
       },
-      :hadoop => {
-        :hdfs_site => {
-          'dfs.domain.socket.path' => '/var/lib/hadoop-hdfs/dn_socket',
-          'dfs.client.read.shortcircuit' => true,
-          'dfs.datanode.hdfs-blocks-metadata.enabled' => true,
-          'dfs.client.file-block-storage-locations.timeout.millis' => '60000'
-        }
-      },
       :hive => {
         :hive_site => {
           'hive.metastore.uris' => 'thrift://localhost:9093'
