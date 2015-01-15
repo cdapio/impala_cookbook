@@ -12,5 +12,13 @@ describe 'impala::state_store' do
     it 'installs impala-state-store package' do
       expect(chef_run).to install_package('impala-state-store')
     end
+
+    it 'starts impala-state-store service' do
+      expect(chef_run).to start_service('impala-state-store')
+    end
+
+    it 'enables impala-state-store service' do
+      expect(chef_run).to enable_service('impala-state-store')
+    end
   end
 end

@@ -12,5 +12,13 @@ describe 'impala::catalog' do
     it 'installs impala-catalog package' do
       expect(chef_run).to install_package('impala-catalog')
     end
+
+    it 'starts impala-catalog service' do
+      expect(chef_run).to start_service('impala-catalog')
+    end
+
+    it 'enables impala-catalog service' do
+      expect(chef_run).to enable_service('impala-catalog')
+    end
   end
 end
