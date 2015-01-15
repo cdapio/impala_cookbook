@@ -47,8 +47,8 @@ if node['impala'].key?('config')
     end
 
   directory impala_log_dir do
-    owner 'impala'
-    group 'impala'
+    owner node['impala']['user']
+    group node['impala']['group']
     mode '0755'
     action :create
     recursive true
@@ -70,8 +70,8 @@ if node['impala'].key?('config')
   template '/etc/default/impala' do
     source 'generic-env.sh.erb'
     mode '0755'
-    owner 'impala'
-    group 'impala'
+    owner node['impala']['user']
+    group node['impala']['group']
     action :create
     variables my_vars
   end
