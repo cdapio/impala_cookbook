@@ -10,6 +10,6 @@ version          '0.1.0'
   depends cb
 end
 
-%w(amazon centos redhat scientific ubuntu).each do |os|
+%w(amazon centos debian redhat scientific ubuntu).each do |os|
   supports os
 end
