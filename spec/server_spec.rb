@@ -12,5 +12,13 @@ describe 'impala::server' do
     it 'installs impala-server package' do
       expect(chef_run).to install_package('impala-server')
     end
+
+    it 'starts impala-server service' do
+      expect(chef_run).to start_service('impala-server')
+    end
+
+    it 'enables impala-server service' do
+      expect(chef_run).to enable_service('impala-server')
+    end
   end
 end
