@@ -4,7 +4,7 @@ maintainer_email 'ops@cask.co'
 license          'All rights reserved'
 description      'Installs/Configures Impala'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.1.0'
+version          '0.1.1'
 
 %w(hadoop java).each do |cb|
   depends cb
