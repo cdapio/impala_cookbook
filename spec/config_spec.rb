@@ -5,6 +5,8 @@ describe 'impala::config' do
     let(:chef_run) do
       ChefSpec::SoloRunner.new(platform: 'centos', version: 6.5) do |node|
         node.automatic['domain'] = 'example.com'
+        node.default['hive']['hive_site']['hive.metastore.uris'] = 'thrift://foo:9093'
+        node.default['impala']['conf_dir'] = 'conf.chef'
         stub_command(/update-alternatives --display /).and_return(false)
       end.converge(described_recipe)
     end
@@ -15,11 +17,13 @@ describe 'impala::config' do
       end
     end
 
-    it 'renders /etc/default/impala from template' do
-      expect(chef_run).to create_template('/etc/default/impala').with(
-        user: 'impala',
-        group: 'impala'
-      )
+    %w(/etc/default/impala /etc/impala/conf.chef/hive-site.xml).each do |template|
+      it "renders #{template} from template" do
+        expect(chef_run).to create_template('/etc/default/impala').with(
+          user: 'impala',
+          group: 'impala'
+        )
+      end
     end
 
     it 'runs execute[update impala-conf alternatives]' do
