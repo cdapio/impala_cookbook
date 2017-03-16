@@ -1,7 +1,7 @@
 Encoding:
   Enabled: False
 LineLength:
-  Max: 250
+  Max: 600
 Documentation:
   Enabled: False
 HashSyntax:
@@ -9,4 +9,18 @@ HashSyntax:
 Style/SpaceBeforeFirstArg:
   Enabled: false
 AsciiComments:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/ModuleLength:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+Style/FrozenStringLiteralComment:
   Enabled: false
