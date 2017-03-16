@@ -13,3 +13,6 @@ end
 %w(amazon centos debian redhat scientific ubuntu).each do |os|
   supports os
 end
+
+source_url 'https://github.com/caskdata/impala_cookbook' if respond_to?(:source_url)
+issues_url 'https://issues.cask.co/browse/COOK/component/10613' if respond_to?(:issues_url)
