@@ -71,7 +71,7 @@ if node['impala'].key?('config')
     owner node['impala']['user']
     group node['impala']['group']
     action :create
-    variables :options => node['impala']['config']
+    variables options: node['impala']['config']
   end
 end # End /etc/default/impala
 
@@ -82,7 +82,7 @@ template "#{impala_conf_dir}/hive-site.xml" do
   owner node['impala']['user']
   group node['impala']['group']
   action :create
-  variables :options => node['hive']['hive_site']
+  variables options: node['hive']['hive_site']
   only_if { node.key?('hive') && node['hive'].key?('hive_site') && !node['hive']['hive_site'].empty? }
 end # End hive-site.xml
 
